@@ -1,7 +1,24 @@
+using Microsoft.EntityFrameworkCore;
+using Example_mvc_1.Models;
+using Microsoft.Extensions.Options;
+using Example_mvc_1.Data;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+// builder.WebHost.ConfigureKestrel(options =>
+// {
+//     options.ListenLocalhost(7203, listenOptions =>
+//     {
+//         listenOptions.UseHttps();
+//     });
+// });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicationDBContext>(options => 
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
