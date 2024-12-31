@@ -1,0 +1,124 @@
+@model List<BookEntity>
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+@{
+    int total = 0; // Khai báo biến và đặt giá trị ban đầu là 0
+}
+
+<h2>Books</h2>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Create" asp-controller="Book" class="btn btn-primary btn-lg">Create Book</a>
+    </div>
+</div>
+
+<br> <br>
+
+<div class="row">
+    <div class="col-md-12">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Title</td>
+                        <td>@item.Author</td>
+                        <td>@item.ISBN</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+   
+<br> <br>
+
+<div class="card">
+    <h5 class="card-header">Book Table</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr class="text-center">
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if(@total % 2 == 0){
+                    <tr class="text-center">
+                        <td>
+                            <i class="bi bi-journal-code text-danger me-2"></i> <span>@item.Id</span>
+                        </td>
+                        <td>@item.Title</td>
+                        <td class="align-middle text-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                
+                                <img src="https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template-free/demo/assets/img/avatars/5.png" alt="Avatar" 
+                                class="rounded-circle me-2" style="width: 32px; height: 32px;">
+                                <span>@item.Author</span>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-primary">@item.ISBN</span></td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    } else {
+                    <tr class="text-center">
+                        <td>
+                            <i class="bi bi-terminal text-info me-2"></i>
+                            <span>@item.Id</span>
+                        </td>
+                        <td>@item.Title</td>
+                        <td>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img src="https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template-free/demo/assets/img/avatars/5.png" alt="Avatar" class="rounded-circle me-2" style="width: 32px; height: 32px;">
+                                <span>@item.Author</span>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-success">@item.ISBN</span></td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                total++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
