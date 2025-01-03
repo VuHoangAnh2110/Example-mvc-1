@@ -20,3 +20,26 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Làm cho màu chữ đậm hơn */
+.form-label,
+.input-group-text {
+    color: #333; /* Chọn màu sắc đậm hơn cho chữ */
+}
+
+/* Làm cho màu icon đậm hơn */
+.bi {
+    color: #333; /* Chọn màu sắc đậm hơn cho icon */
+}
+
+/* Thêm hiệu ứng border khi input được focus */
+.form-control:focus {
+    border-color: #007bff; /* Màu sắc của border khi focus (bạn có thể thay đổi màu) */
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); /* Hiệu ứng shadow xung quanh */
+}
+
+/* Cải thiện sự tương phản của label khi focus */
+.form-label {
+    color: #007bff; /* Màu chữ của label khi input được focus */
+}
+
