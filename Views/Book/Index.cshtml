@@ -12,35 +12,7 @@
 <br>
 <div class="row">
     <div class="col-md-12">
-        <a asp-action="Create" asp-controller="Book" class="btn btn-primary btn-lg">Create Book</a>
-    </div>
-</div>
-
-<br> <br>
-
-<div class="row">
-    <div class="col-md-12">
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>ISBN</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@item.Title</td>
-                        <td>@item.Author</td>
-                        <td>@item.ISBN</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        <a asp-action="Create" asp-controller="Book" class="btn btn-secondary btn-lg">Create Book</a>
     </div>
 </div>
    
