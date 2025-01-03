@@ -4,3 +4,76 @@
     ViewData["Title"] = "Add New Book";
 }
 
+<center>
+<div class="col-md-6">
+    <div class="card shadow-sm">
+        <h5 class="card-header bg-primary text-white">Form Inputs</h5>
+        <div class="card-body p-4">
+            <form asp-action="CreateBook" asp-controller="Book" method="post">
+                <!-- Search Input -->
+                <div class="mb-3">
+                    <label for="searchInput" class="form-label">Search</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" id="searchInput" placeholder="Type to search...">
+                    </div>
+                </div>
+
+                <!-- Password Input -->
+                <div class="mb-3">
+                    <label for="TitleInput" class="form-label">Title Book</label>
+                    <div class="input-group">
+                        <input type="text" asp-for="Title" class="form-control" id="TitleInput" placeholder="Enter title">
+                        <span class="input-group-text"><i class="bi bi-eye-slash cursor-pointer"></i></span>
+                    </div>
+                </div>
+
+                <!-- Username Input -->
+                <div class="mb-3">
+                    <label for="AuthorInput" class="form-label">Author Name</label>
+                    <div class="input-group">
+                        <input type="text" asp-for="Author" class="form-control" id="AuthorInput" placeholder="Enter author name">
+                        <span class="input-group-text">example.com</span>
+                    </div>
+                </div>
+
+                <!-- URL Input -->
+                <div class="mb-3">
+                    <label for="urlInput" class="form-label">Custom URL</label>
+                    <div class="input-group">
+                        <span class="input-group-text">https://example.com/users/</span>
+                        <input type="text" class="form-control" id="urlInput" placeholder="Enter user ID">
+                    </div>
+                </div>
+
+                <!-- Amount Input -->
+                <div class="mb-3">
+                    <label for="amountInput" class="form-label">Amount</label>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="number" class="form-control" id="amountInput" placeholder="100">
+                        <span class="input-group-text">.00</span>
+                    </div>
+                </div>
+
+                <!-- Textarea Input -->
+                <div class="mb-3">
+                    <label for="textareaInput" class="form-label">Additional Notes</label>
+                    <div class="input-group">
+                        <span class="input-group-text">ISBN</span>
+                        <textarea class="form-control" asp-for="ISBN" id="textareaInput" rows="3" placeholder="Write something..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="mb-3">
+                    <center>
+                        <button type="submit" class="btn btn-secondary">Create Book</button>
+                        <a asp-action="Index" asp-controller="Book" class="btn btn-secondary">List</a>
+                    </center>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</center>
